@@ -14,7 +14,6 @@ class ApplicationController < ActionController::API
 
   def decoded_token
     if auth_header
-      # byebug
       token = auth_header.split(' ')[1]
         # headers: { 'Authorization': 'Bearer <token>' }
         begin
@@ -39,7 +38,7 @@ class ApplicationController < ActionController::API
   end
 
   def logged_in?
-    !!current_user || !!current_driver
+    !!current_user # || !!current_driver
   end
 
   def authorized

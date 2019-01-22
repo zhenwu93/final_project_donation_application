@@ -1,8 +1,10 @@
 class Api::V1::DonationsController < ApplicationController
+  skip_before_action :authorized, only: [:index]
   before_action :find_donation, only: [:update]
 
   def index
     @donations = Donation.all
+    # byebug
     render json: @donations
   end
 
@@ -16,8 +18,11 @@ class Api::V1::DonationsController < ApplicationController
   end
 
   def create
+    # byebug
     @donation = Donation.create(donation_params)
+    # byebug
     if @donation.valid?
+      # byebug
       render json: {donation: DonationSerializer.new(@donation)}, status: :created
     else
       render json: {error: 'failed to create donation'}, status: :not_acceptable
@@ -27,7 +32,7 @@ class Api::V1::DonationsController < ApplicationController
   private
 
   def donation_params
-    params.require(:donation).permit(:description, :date, :avatar)
+    params.require(:donation).permit(:description, :avatar)
   end
 
   def find_donation
