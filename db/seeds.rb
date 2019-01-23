@@ -23,10 +23,11 @@ User.create(
     first_name: 'u2',
     last_name: 'u2',
   )
+destination = ['Salvation Army','New York City Rescure Mission', 'Coalition for the Homeless', 'Department of Homeless Services']
 
-Donation.create(description: 'clothes', avatar: 'https://cdn.pixabay.com/photo/2016/04/19/13/39/store-1338629_960_720.jpg', status:"delivered", destination:"Salvation Army")
-Donation.create(description: 'food', avatar: 'https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/howcuttingdo.jpg', status:"accepted", destination: "")
-Donation.create(description: 'canned goods', avatar: 'http://www.youngandraw.com/wp-content/uploads/4-Reasons-to-Avoid-Canned-Foods-Save-time-and-Money-too.jpg', status:"accepted", destination: "")
+Donation.create(description: 'clothes', avatar: 'https://cdn.pixabay.com/photo/2016/04/19/13/39/store-1338629_960_720.jpg', status:"Delivered", destination: destination.sample)
+Donation.create(description: 'food', avatar: 'https://3c1703fe8d.site.internapcdn.net/newman/gfx/news/hires/2016/howcuttingdo.jpg', destination: destination.sample)
+Donation.create(description: 'canned goods', avatar: 'http://www.youngandraw.com/wp-content/uploads/4-Reasons-to-Avoid-Canned-Foods-Save-time-and-Money-too.jpg', destination: destination.sample)
 
 DonationList.create(donation_id: 1, user_id: 1)
 DonationList.create(donation_id: 2, user_id: 1)
